@@ -57,7 +57,7 @@ fi
 check(){
 	if (( ${board["0,0"]} == 1 && ${board["1,1"]} == ${board["0,0"]} && ${board["1,1"]} == ${board["2,2"]} ))||
 	   (( ${board["0,2"]} == 1 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == ${board["1,1"]} ))||
-       	   (( ${board["0,0"]} == 1 && ${board["0,1"]} == ${board["0,2"]} && ${board["0,2"]} == ${board["0,1"]} ))||
+       	   (( ${board["0,0"]} == 1 && ${board["0,1"]} == ${board["0,0"]} && ${board["0,2"]} == ${board["0,1"]} ))||
 	   (( ${board["1,0"]} == 1 && ${board["1,1"]} == ${board["1,0"]} && ${board["1,1"]} == ${board["1,2"]} ))||
 	   (( ${board["2,0"]} == 1 && ${board["2,1"]} == ${board["2,0"]} && ${board["2,1"]} == ${board["2,2"]} ))||
 	   (( ${board["0,0"]} == 1 && ${board["1,0"]} == ${board["0,0"]} && ${board["1,0"]} == ${board["2,0"]} ))||
@@ -65,7 +65,7 @@ check(){
 	   (( ${board["0,2"]} == 1 && ${board["1,2"]} == ${board["0,2"]} && ${board["1,2"]} == ${board["2,2"]} ))||
 	   (( ${board["0,0"]} == 0 && ${board["1,1"]} == ${board["0,0"]} && ${board["1,1"]} == ${board["2,2"]} ))||
            (( ${board["0,2"]} == 0 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == ${board["1,1"]} ))||
-           (( ${board["0,0"]} == 0 && ${board["0,1"]} == ${board["0,2"]} && ${board["0,2"]} == ${board["0,1"]} ))||
+           (( ${board["0,0"]} == 0 && ${board["0,1"]} == ${board["0,0"]} && ${board["0,2"]} == ${board["0,1"]} ))||
            (( ${board["1,0"]} == 0 && ${board["1,1"]} == ${board["1,0"]} && ${board["1,1"]} == ${board["1,2"]} ))||
            (( ${board["2,0"]} == 0 && ${board["2,1"]} == ${board["2,0"]} && ${board["2,1"]} == ${board["2,2"]} ))||
            (( ${board["0,0"]} == 0 && ${board["1,0"]} == ${board["0,0"]} && ${board["1,0"]} == ${board["2,0"]} ))||
@@ -79,89 +79,92 @@ fi
 }
 computer()
 {
-if (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+if (( ${board["0,0"]} == 1 && ${board["1,1"]} == ${board["0,0"]} && 2 == ${board["2,2"]} ))
 	then
-		tiktaktoe["2,2"]=$input
-	fi
-          if  (( ${tiktaktoe["0,2"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["2,0"]} == 2 ))
+		board["2,2"]=$input2
+         elif  (( ${board["0,2"]} == 1 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == 2 ))
 	then
-		tiktaktoe["2,0"]=$input
-	fi
-          if  (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["0,1"]} == ${tiktaktoe["0,0"]} && ${tiktaktoe["0,2"]} == 2 ))
+		board["2,0"]=$input2
+          elif  (( ${board["0,0"]} == 1 && ${board["0,1"]} == ${board["0,0"]} && ${board["0,2"]} == 2 ))
 	 then
-                tiktaktoe["0,2"]=$input
-        fi
-          if  (( ${tiktaktoe["1,0"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["1,0"]} && 2== ${tiktaktoe["1,2"]} ))
+                board["0,2"]=$input2
+          elif  (( ${board["1,0"]} == 1 && ${board["1,1"]} == ${board["1,0"]} && 2== ${board["1,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["2,0"]} == 1 && ${tiktaktoe["2,1"]} == ${tiktaktoe["2,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["2,0"]} == 1 && ${board["2,1"]} == ${board["2,0"]} && 2 == ${board["2,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["1,0"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,0"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["0,0"]} == 1 && ${board["1,0"]} == ${board["0,0"]} && 2 == ${board["2,0"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,1"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,1"]} && 2 == ${tiktaktoe["2,1"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["0,1"]} == 1 && ${board["1,1"]} == ${board["0,1"]} && 2 == ${board["2,1"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,2"]} == 1 && ${tiktaktoe["1,2"]} == ${tiktaktoe["0,2"]} && 2 == ${tiktaktoe["2,2"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["0,2"]} == 1 && ${board["1,2"]} == ${board["0,2"]} && 2 == ${board["2,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["0,0"]} == 0 && ${board["1,1"]} == ${board["0,0"]} && 2 == ${board["2,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,2"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["2,0"]} == 2 ))
+                board["2,2"]=$input2
+          elif (( ${board["0,2"]} == 0 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == 2 ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["0,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["0,2"]} == 2 ))
+                board["2,2"]=$input2
+          elif (( ${board["0,0"]} == 0 && ${board["0,1"]} == ${board["0,0"]} && ${board["0,2"]} == 2 ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["1,0"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["1,0"]} && 2 == ${tiktaktoe["1,2"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["1,0"]} == 0 && ${board["1,1"]} == ${board["1,0"]} && 2 == ${board["1,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["2,0"]} == 0 && ${tiktaktoe["2,1"]} == ${tiktaktoe["2,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["2,0"]} == 0 && ${board["2,1"]} == ${board["2,0"]} && 2 == ${board["2,2"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["1,0"]} == ${tiktaktoe["0,0"]} && ${tiktaktoe["1,0"]} == 2 ))
+                board["2,2"]=$input2
+          elif (( ${board["0,0"]} == 0 && ${board["1,0"]} == ${board["0,0"]} && ${board["1,0"]} == 2 ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,1"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,1"]} && 2 == ${tiktaktoe["2,1"]} ))
+                board["2,2"]=$input2
+          elif (( ${board["0,1"]} == 0 && ${board["1,1"]} == ${board["0,1"]} && 2 == ${board["2,1"]} ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
-          if (( ${tiktaktoe["0,2"]} == 0 && ${tiktaktoe["1,2"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["1,2"]} == 2 ))
+                board["2,2"]=$input2
+          elif (( ${board["0,2"]} == 0 && ${board["1,2"]} == ${board["0,2"]} && ${board["1,2"]} == 2 ))
 	 then
-                tiktaktoe["2,2"]=$input
-        fi
+                board["2,2"]=$input2
+	elif (( ${board["0,0"]} == 2 ))
+	then
+		board["0,0"]=$input2
+	 elif (( ${board["0,2"]} == 2 ))
+       then
+               board["0,2"]=$input2
+	 elif (( ${board["2,0"]} == 2 ))
+        then
+                board["2,0"]=$input2
+	 elif (( ${board["2,2"]} == 2 ))
+        then
+                board["2,2"]=$input2
+	 elif (( ${board["1,1"]} == 2 ))
+       then
+                board["1,1"]=$input2
+	elif (( ${board["1,0"]} == 2 ))
+	then
+		board["1,0"]=$input2
+	elif (( ${board["1,2"]} == 2 ))
+        then
+                board["1,2"]=$input2
+	elif (( ${board["0,1"]} == 2 ))
+        then
+                board["0,1"]=$input2
+	elif (( ${board["2,1"]} == 2 ))
+        then
+                board["2,1"]=$input2
 
-
-a=$((RANDOM%2));
-b=$((RANDOM%2));
-if [ ${tiktaktoe["$a,$b"]} -eq 2 ]
-then
-tiktaktoe["$a,$b"]=1;
-else
-echo "please check your coordinates..";
 fi
 }
 
 reset
 tiktaktoe["0,0"]=0;
-tiktaktoe["1,1"]=0;
+#tiktaktoe["1,1"]=0;
 #tiktaktoe["2,2"]=0;
 boarddisplay
 #tos
 tos
 computer
-check
+check 
 boarddisplay
