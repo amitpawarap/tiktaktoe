@@ -1,0 +1,6 @@
+#!/bin/bash -x
+declare -A  tik
+rows=3;
+columns=3;
+temp=9;
+count=0
