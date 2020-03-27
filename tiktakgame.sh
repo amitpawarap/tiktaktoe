@@ -77,14 +77,23 @@ else
 	echo "loss"
 fi
 }
-
-
+computer()
+{
+a=$((RANDOM%2));
+b=$((RANDOM%2));
+if [ ${tiktaktoe["$a,$b"]} -eq 2 ]
+then
+tiktaktoe["$a,$b"]=1;
+else
+echo "please check your coordinates..";
+fi
+}
 
 reset
 tiktaktoe["0,0"]=0;
 tiktaktoe["1,1"]=0;
 tiktaktoe["2,2"]=0;
 boarddisplay
-tos
-check
+#tos
+#check
 boarddisplay
