@@ -10,7 +10,8 @@ for((i=0;i<3;i++))
 do
 for((j=0;j<3;j++))
 do
- tiktaktoe["$i,$j"]="e"
+
+ tiktaktoe["$i,$j"]=2
 done
 done
 }
@@ -53,7 +54,37 @@ else
 input2=1;
 fi
 }
+check(){
+	if (( ${board["0,0"]} == 1 && ${board["1,1"]} == ${board["0,0"]} && ${board["1,1"]} == ${board["2,2"]} ))||
+	   (( ${board["0,2"]} == 1 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == ${board["1,1"]} ))||
+       	   (( ${board["0,0"]} == 1 && ${board["0,1"]} == ${board["0,2"]} && ${board["0,2"]} == ${board["0,1"]} ))||
+	   (( ${board["1,0"]} == 1 && ${board["1,1"]} == ${board["1,0"]} && ${board["1,1"]} == ${board["1,2"]} ))||
+	   (( ${board["2,0"]} == 1 && ${board["2,1"]} == ${board["2,0"]} && ${board["2,1"]} == ${board["2,2"]} ))||
+	   (( ${board["0,0"]} == 1 && ${board["1,0"]} == ${board["0,0"]} && ${board["1,0"]} == ${board["2,0"]} ))||
+	   (( ${board["0,1"]} == 1 && ${board["1,1"]} == ${board["0,1"]} && ${board["1,1"]} == ${board["2,1"]} ))||
+	   (( ${board["0,2"]} == 1 && ${board["1,2"]} == ${board["0,2"]} && ${board["1,2"]} == ${board["2,2"]} ))||
+	   (( ${board["0,0"]} == 0 && ${board["1,1"]} == ${board["0,0"]} && ${board["1,1"]} == ${board["2,2"]} ))||
+           (( ${board["0,2"]} == 0 && ${board["1,1"]} == ${board["0,2"]} && ${board["2,0"]} == ${board["1,1"]} ))||
+           (( ${board["0,0"]} == 0 && ${board["0,1"]} == ${board["0,2"]} && ${board["0,2"]} == ${board["0,1"]} ))||
+           (( ${board["1,0"]} == 0 && ${board["1,1"]} == ${board["1,0"]} && ${board["1,1"]} == ${board["1,2"]} ))||
+           (( ${board["2,0"]} == 0 && ${board["2,1"]} == ${board["2,0"]} && ${board["2,1"]} == ${board["2,2"]} ))||
+           (( ${board["0,0"]} == 0 && ${board["1,0"]} == ${board["0,0"]} && ${board["1,0"]} == ${board["2,0"]} ))||
+           (( ${board["0,1"]} == 0 && ${board["1,1"]} == ${board["0,1"]} && ${board["1,1"]} == ${board["2,1"]} ))||
+           (( ${board["0,2"]} == 0 && ${board["1,2"]} == ${board["0,2"]} && ${board["1,2"]} == ${board["2,2"]} ))
+then
+	echo "win"
+else
+	echo "loss"
+fi
+}
+
+
+
 reset
+tiktaktoe["0,0"]=0;
+tiktaktoe["1,1"]=0;
+tiktaktoe["2,2"]=0;
 boarddisplay
 tos
+check
 boarddisplay
