@@ -79,6 +79,72 @@ fi
 }
 computer()
 {
+if (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+	then
+		tiktaktoe["2,2"]=$input
+	fi
+          if  (( ${tiktaktoe["0,2"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["2,0"]} == 2 ))
+	then
+		tiktaktoe["2,0"]=$input
+	fi
+          if  (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["0,1"]} == ${tiktaktoe["0,0"]} && ${tiktaktoe["0,2"]} == 2 ))
+	 then
+                tiktaktoe["0,2"]=$input
+        fi
+          if  (( ${tiktaktoe["1,0"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["1,0"]} && 2== ${tiktaktoe["1,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["2,0"]} == 1 && ${tiktaktoe["2,1"]} == ${tiktaktoe["2,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["1,0"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,0"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,1"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,1"]} && 2 == ${tiktaktoe["2,1"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,2"]} == 1 && ${tiktaktoe["1,2"]} == ${tiktaktoe["0,2"]} && 2 == ${tiktaktoe["2,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,2"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["2,0"]} == 2 ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["0,1"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["0,2"]} == 2 ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["1,0"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["1,0"]} && 2 == ${tiktaktoe["1,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["2,0"]} == 0 && ${tiktaktoe["2,1"]} == ${tiktaktoe["2,0"]} && 2 == ${tiktaktoe["2,2"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,0"]} == 0 && ${tiktaktoe["1,0"]} == ${tiktaktoe["0,0"]} && ${tiktaktoe["1,0"]} == 2 ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,1"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,1"]} && 2 == ${tiktaktoe["2,1"]} ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+          if (( ${tiktaktoe["0,2"]} == 0 && ${tiktaktoe["1,2"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["1,2"]} == 2 ))
+	 then
+                tiktaktoe["2,2"]=$input
+        fi
+
+
 a=$((RANDOM%2));
 b=$((RANDOM%2));
 if [ ${tiktaktoe["$a,$b"]} -eq 2 ]
@@ -92,8 +158,10 @@ fi
 reset
 tiktaktoe["0,0"]=0;
 tiktaktoe["1,1"]=0;
-tiktaktoe["2,2"]=0;
+#tiktaktoe["2,2"]=0;
 boarddisplay
 #tos
-#check
+tos
+computer
+check
 boarddisplay
