@@ -3,6 +3,7 @@ input=0;
 first=2;
 input2=0;
 declare -A tiktaktoe
+tottaktoe["1,1"]=1
 function reset()
 {
 for((i=0;i<3;i++))
