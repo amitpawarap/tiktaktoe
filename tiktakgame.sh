@@ -1,6 +1,7 @@
 #!/bin/bash -x
-first=0;
-second=0;
+input=0;
+first=2;
+input2=0;
 declare -A tiktaktoe
 function reset()
 {
@@ -30,12 +31,24 @@ a=$((RANDOM%2 +1))
 echo "random value $a";
 if [ $choice -eq $a ]
 then
-echo "$player player won the toss and gets the X";
-first=$player;
-input1="X";
+echo "you won the toss and gets the 1.X \n 2.O";
+first=1;
+read input
 else
-echo "other player loss tos and gets the O"
-input2="O";
+first=1;
+echo "you  loss the tos and computer randomly generates its choice..."
+b=$((RANDOM%2))
+if [ $b -eq 0 ]
+then
+echo "computer chose X";
+else
+echo "computer chose O";
+fi
+fi
+if [ $input -eq 1 ]
+then 
+input=1;
+else
+input2=0;
 fi
 }
-tos
