@@ -1,6 +1,7 @@
 #!/bin/bash -x
 input=0;
 first=2;
+win=0
 input2=0;
 declare -A tiktaktoe
 tottaktoe["1,1"]=1
@@ -49,9 +50,9 @@ fi
 fi
 if [ $input -eq 1 ]
 then 
-input2=0;
+input=1;
 else
-input2=1;
+input2=0;
 fi
 }
 check(){
@@ -72,6 +73,7 @@ check(){
            (( ${tiktaktoe["0,1"]} == 0 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,1"]} && ${tiktaktoe["1,1"]} == ${tiktaktoe["2,1"]} ))||
            (( ${tiktaktoe["0,2"]} == 0 && ${tiktaktoe["1,2"]} == ${tiktaktoe["0,2"]} && ${tiktaktoe["1,2"]} == ${tiktaktoe["2,2"]} ))
 then
+          win=1;
 	echo "win"
 else
 	echo "loss"
@@ -158,13 +160,24 @@ if (( ${tiktaktoe["0,0"]} == 1 && ${tiktaktoe["1,1"]} == ${tiktaktoe["0,0"]} && 
 fi
 }
 
+function user()
+{
+echo "enter the coordinate"
+read a b;
+tiktaktoe["$a,$b"]=1;
+}
 reset
-tiktaktoe["0,0"]=0;
+#tiktaktoe["0,0"]=0;
 #tiktaktoe["1,1"]=0;
 #tiktaktoe["2,2"]=0;
 boarddisplay
 #tos
 tos
+while [ $win -ne 1 ]
+do
+boarddisplay
+user
 computer
 check 
 boarddisplay
+done
