@@ -177,7 +177,7 @@ boarddisplay
 tos
 while [ $win -ne 1 ]
 do
-boarddisplay
+#boarddisplay
 user
 computer
 check 
